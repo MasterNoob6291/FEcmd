@@ -7,7 +7,7 @@ local player = Players.LocalPlayer
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-function CrashPlr(Name) -- Crashes Player
+function CrshPlr(Name)
     if Name == nil then
         return
     end
@@ -111,13 +111,20 @@ local Commands = {}
 -- Example command: "example"
 -- Just prints parameters to the output
 Commands["crp"] = function(params)
-    local plr = tonumber(params[2]) or nil
-    CrashPlr(plr)
+    local plrName = params[1] -- first parameter after the command
+    if not plrName then
+        warn("No player name provided!")
+        return
+    end
 
+    CrshPlr(plrName)
+
+    -- just print parameters to check
     for i, v in ipairs(params) do
         print(i, v)
     end
 end
+
 
 -- Function to parse chat message
 local function parseCommand(message)
