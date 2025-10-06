@@ -40,8 +40,6 @@ function CrshPlr(Name)
         end)
     end
 
-    task.wait(2) -- give server time to create parts
-
     -- STEP 3: Create meshes
     local meshData = {}
     for _, part in pairs(createdParts) do
